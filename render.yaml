@@ -36,7 +36,7 @@ services:
     dockerfilePath: ./apps/web/Dockerfile
     dockerContext: ./apps/web
     plan: free
-    command: node --experimental-strip-types ./scripts/worker.ts
+    startCommand: node --experimental-strip-types ./scripts/worker.ts
     envVars:
       - key: DATABASE_URL
         fromDatabase:

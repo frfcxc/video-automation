@@ -22,9 +22,6 @@ RUN npm run build
 
 RUN npm prune --omit=dev
 
-COPY start.sh ./
-RUN chmod +x start.sh
-
 EXPOSE 3000
 
-CMD ["./start.sh"]
+CMD node --experimental-strip-types ./scripts/worker.ts & npm run start

@@ -11,9 +11,7 @@ services:
           name: video-automation-db
           property: connectionString
       - key: REDIS_URL
-        fromDatabase:
-          name: video-automation-redis
-          property: connectionString
+        sync: false
       - key: FFMPEG_BINARY
         value: ffmpeg
       - key: FFPROBE_BINARY
@@ -41,9 +39,7 @@ services:
           name: video-automation-db
           property: connectionString
       - key: REDIS_URL
-        fromDatabase:
-          name: video-automation-redis
-          property: connectionString
+        sync: false
       - key: FFMPEG_BINARY
         value: ffmpeg
       - key: FFPROBE_BINARY
@@ -63,8 +59,4 @@ services:
 
 databases:
   - name: video-automation-db
-    plan: free
-
-  - name: video-automation-redis
-    databaseType: redis
     plan: free

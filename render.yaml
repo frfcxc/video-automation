@@ -33,10 +33,9 @@ services:
   - type: worker
     name: video-automation-worker
     env: docker
-    dockerfilePath: ./apps/web/Dockerfile
+    dockerfilePath: ./apps/web/Dockerfile.worker
     dockerContext: ./apps/web
     plan: free
-    startCommand: node --experimental-strip-types ./scripts/worker.ts
     envVars:
       - key: DATABASE_URL
         fromDatabase:

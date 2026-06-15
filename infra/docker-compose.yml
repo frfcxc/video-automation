@@ -1,0 +1,109 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: video_automation
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 3s
+      timeout: 3s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 3s
+      timeout: 3s
+      retries: 5
+
+  web:
+    build:
+      context: ../apps/web
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/video_automation
+      REDIS_URL: redis://redis:6379
+      FFMPEG_BINARY: ffmpeg
+      FFPROBE_BINARY: ffprobe
+      ASR_PROVIDER: ${ASR_PROVIDER:-local-fallback}
+      ASR_API_KEY: ${ASR_API_KEY:-}
+      ASR_BASE_URL: ${ASR_BASE_URL:-}
+      TRANSLATION_PROVIDER: ${TRANSLATION_PROVIDER:-local-fallback}
+      TRANSLATION_API_KEY: ${TRANSLATION_API_KEY:-}
+      TRANSLATION_BASE_URL: ${TRANSLATION_BASE_URL:-}
+      TTS_PROVIDER: ${TTS_PROVIDER:-local-fallback}
+      TTS_API_KEY: ${TTS_API_KEY:-}
+      TTS_BASE_URL: ${TTS_BASE_URL:-}
+      WORKER_MAX_ATTEMPTS: ${WORKER_MAX_ATTEMPTS:-3}
+      WORKER_RETRY_DELAY_MS: ${WORKER_RETRY_DELAY_MS:-5000}
+      WORKER_CONCURRENCY: ${WORKER_CONCURRENCY:-1}
+    volumes:
+      - webdata:/app/.data
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  migrate:
+    build:
+      context: ../apps/web
+      dockerfile: Dockerfile
+    command: node --experimental-strip-types ./sql/migrate.ts
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/video_automation
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: on-failure
+
+  worker:
+    build:
+      context: ../apps/web
+      dockerfile: Dockerfile
+    command: node --experimental-strip-types ./scripts/worker.ts
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/video_automation
+      REDIS_URL: redis://redis:6379
+      FFMPEG_BINARY: ffmpeg
+      FFPROBE_BINARY: ffprobe
+      ASR_PROVIDER: ${ASR_PROVIDER:-local-fallback}
+      ASR_API_KEY: ${ASR_API_KEY:-}
+      ASR_BASE_URL: ${ASR_BASE_URL:-}
+      TRANSLATION_PROVIDER: ${TRANSLATION_PROVIDER:-local-fallback}
+      TRANSLATION_API_KEY: ${TRANSLATION_API_KEY:-}
+      TRANSLATION_BASE_URL: ${TRANSLATION_BASE_URL:-}
+      TTS_PROVIDER: ${TTS_PROVIDER:-local-fallback}
+      TTS_API_KEY: ${TTS_API_KEY:-}
+      TTS_BASE_URL: ${TTS_BASE_URL:-}
+      WORKER_MAX_ATTEMPTS: ${WORKER_MAX_ATTEMPTS:-3}
+      WORKER_RETRY_DELAY_MS: ${WORKER_RETRY_DELAY_MS:-5000}
+      WORKER_CONCURRENCY: ${WORKER_CONCURRENCY:-1}
+    volumes:
+      - webdata:/app/.data
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+volumes:
+  pgdata:
+  webdata:

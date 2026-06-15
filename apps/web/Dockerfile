@@ -2,7 +2,7 @@ FROM node:22-alpine
 
 WORKDIR /app
 
-RUN apk add --no-cache ffmpeg
+RUN apk add --no-cache ffmpeg bash
 
 COPY package.json package-lock.json ./
 RUN npm ci
@@ -22,6 +22,9 @@ RUN npm run build
 
 RUN npm prune --omit=dev
 
+COPY start.sh ./
+RUN chmod +x start.sh
+
 EXPOSE 3000
 
-CMD ["npm", "run", "start"]
+CMD ["./start.sh"]

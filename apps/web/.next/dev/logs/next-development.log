@@ -1,0 +1,11 @@
+{"timestamp":"00:00:01.526","source":"Server","level":"LOG","message":"- Experiments (use with caution):"}
+{"timestamp":"00:00:01.526","source":"Server","level":"LOG","message":"  ✓ externalDir"}
+{"timestamp":"00:00:01.526","source":"Server","level":"LOG","message":""}
+{"timestamp":"00:01:11.192","source":"Server","level":"WARN","message":"[db] PostgreSQL is unavailable. Falling back to empty task lists until it is reachable. Error: connect ECONNREFUSED 127.0.0.1:5432"}
+{"timestamp":"00:09:26.114","source":"Server","level":"LOG","message":"✓ Compiled in 260ms"}
+{"timestamp":"17:44:12.598","source":"Server","level":"LOG","message":"✓ Compiled in 112ms"}
+{"timestamp":"17:44:20.831","source":"Server","level":"LOG","message":"✓ Compiled in 64ms"}
+{"timestamp":"17:44:27.598","source":"Server","level":"LOG","message":"✓ Compiled in 37ms"}
+{"timestamp":"18:51:02.891","source":"Server","level":"LOG","message":"✓ Compiled in 412ms"}
+{"timestamp":"34:04:08.158","source":"Server","level":"LOG","message":"✓ Compiled in 674ms"}
+{"timestamp":"34:26:21.505","source":"Server","level":"LOG","message":"✓ Compiled in 1023ms"}

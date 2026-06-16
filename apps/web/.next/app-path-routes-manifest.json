@@ -1,0 +1,11 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/files/[fileName]/route": "/api/files/[fileName]",
+  "/api/ping/route": "/api/ping",
+  "/api/tasks/[taskId]/route": "/api/tasks/[taskId]",
+  "/api/tasks/route": "/api/tasks",
+  "/favicon.ico/route": "/favicon.ico",
+  "/page": "/",
+  "/tasks/[taskId]/page": "/tasks/[taskId]"
+}

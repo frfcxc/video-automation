@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "framework": "nextjs",
+  "buildCommand": "npx next build",
+  "installCommand": "npm ci"
+}

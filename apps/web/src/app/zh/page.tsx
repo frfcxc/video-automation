@@ -2,69 +2,69 @@ import Link from "next/link";
 
 const productCategories = [
   {
-    title: "Jewelry & Watch Showcases",
+    title: "珠宝 & 手表展柜",
     description:
-      "Custom glass display counters, LED-lit jewelry showcases, luxury watch cabinets, and premium gold display units for jewelry chains and luxury boutiques.",
+      "定制玻璃展示柜台、LED珠宝展柜、奢侈品手表陈列柜、高端黄金展示台，专为珠宝连锁和精品店打造。",
     icon: "💍",
-    href: "/products#jewelry",
+    href: "/zh/products#jewelry",
   },
   {
-    title: "Cosmetics & Beauty Displays",
+    title: "化妆品 & 美妆展示",
     description:
-      "Branded tester bars, backlit gondola shelving, cosmetics counters, perfume display cabinets, and promotional kiosks for beauty retail chains.",
+      "品牌试妆台、背光货架、化妆品陈列台、香水展示柜、促销展示亭，服务美妆零售连锁品牌。",
     icon: "💄",
-    href: "/products#cosmetics",
+    href: "/zh/products#cosmetics",
   },
   {
-    title: "Optical & Eyewear Displays",
+    title: "眼镜展示柜",
     description:
-      "Frame display walls, LED-lit eyewear showcases, dispensing counters, and complete optical shop fitting packages for eyewear retail chains.",
+      "镜框展示墙、LED眼镜展柜、验光台、眼镜店整店陈列方案，为眼镜零售连锁提供一站式服务。",
     icon: "👓",
-    href: "/products#optical",
+    href: "/zh/products#optical",
   },
   {
-    title: "Fashion & Apparel Fixtures",
+    title: "服装展示架",
     description:
-      "Garment racks, display tables, wall systems, mannequin platforms, and accessory display units for fashion boutiques and department stores.",
+      "服装展示架、陈列桌、墙面系统、模特平台、配饰展示单元，适用于服装精品店和百货商场。",
     icon: "👗",
-    href: "/products#fashion",
+    href: "/zh/products#fashion",
   },
   {
-    title: "Electronics & Mobile Counters",
+    title: "电子产品展示台",
     description:
-      "Security display fixtures, demo tables, gadget showcases, interactive kiosks, and branded phone display counters with integrated cable management.",
+      "防盗展示柜、演示台、数码展柜、互动体验亭、品牌手机展示台（集成线缆管理），服务电子零售店。",
     icon: "📱",
-    href: "/products#electronics",
+    href: "/zh/products#electronics",
   },
   {
-    title: "Custom Retail Displays",
+    title: "定制零售陈列",
     description:
-      "Fully bespoke retail furniture — supermarket shelving, wine racks, pharmacy displays, pop-up kiosks, museum showcases, and more. Built to your specs.",
+      "全定制零售家具——超市货架、酒柜、药店陈列、快闪店展亭、博物馆展柜等。按图纸定制，100% 还原设计。",
     icon: "🏪",
-    href: "/products#custom",
+    href: "/zh/products#custom",
   },
 ];
 
 const advantages = [
   {
-    title: "Factory Direct",
+    title: "工厂直供",
     description:
-      "Own 18,000m² manufacturing facility. No middlemen — save 30-50% compared to domestic suppliers.",
+      "自有18000m²制造工厂。无中间商，比本地供应商价格低 30-50%。",
   },
   {
-    title: "US Compliant",
+    title: "美国合规",
     description:
-      "CARB-certified MDF, UL-listed LED systems, ASTM E84 fire-rated materials. Fully compliant for US retail chains.",
+      "CARB 认证板材、UL 认证 LED 系统、ASTM E84 防火材料。完全满足美国零售连锁要求。",
   },
   {
-    title: "Custom Design",
+    title: "定制设计",
     description:
-      "Work from your drawings or ours. Any material, finish, dimension, or lighting configuration. OEM/ODM welcome.",
+      "按您的图纸或我们出方案。任何材质、表面处理、尺寸、灯光配置均可定制。OEM/ODM 欢迎。",
   },
   {
-    title: "Global Logistics",
+    title: "全球物流",
     description:
-      "FOB, CIF, or DDP shipping. Container loads or LCL. 25-35 day production after design approval. On-time delivery guaranteed.",
+      "FOB / CIF / DDP 多种运输方式。整柜或拼柜均可。设计确认后 25-35 天生产周期。准时交付有保障。",
   },
 ];
 
@@ -72,23 +72,23 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "FRFCX",
-  url: "https://frfcxcfurniturecustommadeshowcase.com",
+  url: "https://frfcxcfurniturecustommadeshowcase.com/zh",
   description:
-    "Custom showcase and retail display manufacturer — jewelry showcases, cosmetics displays, optical fixtures, fashion retail furniture, and more.",
+    "定制展柜和零售展示柜制造商——珠宝展柜、化妆品展示柜、眼镜展示柜、服装展示架等。",
   knowsAbout: [
-    "Custom Showcases",
-    "Retail Display Cabinets",
-    "Shop Fitting Furniture",
-    "Store Fixtures",
+    "定制展柜",
+    "零售展示柜",
+    "店铺陈列家具",
+    "展示架",
   ],
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "sales",
-    availableLanguage: ["English", "Chinese"],
+    availableLanguage: ["Chinese", "English"],
   },
 };
 
-export default function Home() {
+export default function ZhHome() {
   return (
     <>
       <script
@@ -102,41 +102,36 @@ export default function Home() {
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div className="space-y-6">
               <p className="inline-flex rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.35em] text-cyan-100">
-                Factory Direct · Since 2008
+                工厂直供 · 始于 2008
               </p>
               <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Custom Showcases &amp; Retail Display Manufacturer
+                定制展柜 &amp; 零售展示柜制造商
               </h1>
               <p className="max-w-3xl text-base leading-8 text-slate-300 sm:text-lg">
-                FRFCX manufactures premium custom showcases, retail display
-                cabinets, and shop fitting furniture for jewelry, cosmetics,
-                optical, fashion, and electronics retailers worldwide.
-                Factory-direct pricing with US-compliant materials and global
-                shipping.
+                FRFCX 专注制造高端定制展柜、零售展示柜和店铺陈列家具，服务珠宝、化妆品、眼镜、服装、电子等全球零售品牌。工厂直供价，美国合规材料，全球发货。
               </p>
               <div className="flex flex-wrap gap-4 pt-2">
                 <Link
-                  href="/products"
+                  href="/zh/products"
                   className="rounded-full bg-cyan-400 px-8 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
                 >
-                  View Products
+                  查看产品
                 </Link>
                 <Link
-                  href="/contact"
+                  href="/zh/contact"
                   className="rounded-full border border-white/20 px-8 py-3 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-white/5"
                 >
-                  Get a Quote
+                  获取报价
                 </Link>
               </div>
             </div>
 
-            {/* Hero stat cards */}
             <div className="grid gap-4 sm:grid-cols-2">
               {[
-                { value: "16+", label: "Years Experience" },
-                { value: "18,000m²", label: "Factory" },
-                { value: "50+", label: "Export Countries" },
-                { value: "2,500+", label: "Projects Delivered" },
+                { value: "16+", label: "年行业经验" },
+                { value: "18,000m²", label: "工厂面积" },
+                { value: "50+", label: "出口国家" },
+                { value: "2,500+", label: "交付项目" },
               ].map((stat) => (
                 <div
                   key={stat.label}
@@ -152,14 +147,14 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Product Categories ── */}
+        {/* ── 产品分类 ── */}
         <section className="mx-auto w-full max-w-7xl px-6 pb-20 lg:px-10">
           <div className="mb-10 space-y-2">
             <p className="text-xs font-medium uppercase tracking-[0.3em] text-cyan-100/80">
-              What We Make
+              我们的产品
             </p>
             <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-              Product Categories
+              产品分类
             </h2>
           </div>
 
@@ -182,14 +177,14 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Advantages ── */}
+        {/* ── 我们的优势 ── */}
         <section className="mx-auto w-full max-w-7xl px-6 pb-20 lg:px-10">
           <div className="mb-10 space-y-2">
             <p className="text-xs font-medium uppercase tracking-[0.3em] text-cyan-100/80">
-              Why FRFCX
+              为什么选择 FRFCX
             </p>
             <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-              The FRFCX Advantage
+              FRFCX 优势
             </h2>
           </div>
 
@@ -208,31 +203,31 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Industries We Serve ── */}
+        {/* ── 服务行业 ── */}
         <section className="mx-auto w-full max-w-7xl px-6 pb-20 lg:px-10">
           <div className="mb-10 space-y-2">
             <p className="text-xs font-medium uppercase tracking-[0.3em] text-cyan-100/80">
-              Industries Served
+              服务行业
             </p>
             <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-              Who We Work With
+              我们的客户
             </h2>
           </div>
 
           <div className="flex flex-wrap gap-3">
             {[
-              "Jewelry & Watches",
-              "Cosmetics & Beauty",
-              "Fashion & Apparel",
-              "Optical & Eyewear",
-              "Electronics & Mobile",
-              "Department Stores",
-              "Supermarkets & Grocery",
-              "Pharmacies & Health",
-              "Wine & Spirits",
-              "Museums & Cultural Retail",
-              "Airport & Duty Free",
-              "Shopping Malls",
+              "珠宝 & 手表",
+              "化妆品 & 美妆",
+              "服装 & 时尚",
+              "眼镜",
+              "电子 & 手机",
+              "百货商场",
+              "超市 & 量贩",
+              "药妆 & 健康",
+              "酒类零售",
+              "博物馆 & 文化零售",
+              "机场 & 免税",
+              "购物中心",
             ].map((industry) => (
               <span
                 key={industry}
@@ -248,18 +243,17 @@ export default function Home() {
         <section className="mx-auto w-full max-w-7xl px-6 pb-24 lg:px-10">
           <div className="rounded-3xl border border-cyan-300/20 bg-gradient-to-br from-cyan-950/50 to-slate-900/50 p-10 text-center sm:p-14">
             <h2 className="mb-4 text-3xl font-semibold tracking-tight sm:text-4xl">
-              Ready to Discuss Your Display Project?
+              准备好讨论您的展示项目了吗？
             </h2>
             <p className="mx-auto mb-8 max-w-2xl text-base leading-7 text-slate-300">
-              Send us your design specs or tell us about your store concept.
-              We&apos;ll provide a custom quote within 48 hours — including 3D
-              renderings, material samples, and shipping options.
+              发送您的设计规格或告诉我们您的店铺概念。我们将在 48
+              小时内提供定制报价——包含 3D 效果图、材料样品和运输方案。
             </p>
             <Link
-              href="/contact"
+              href="/zh/contact"
               className="inline-flex rounded-full bg-cyan-400 px-10 py-3.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
             >
-              Contact Us →
+              联系我们 →
             </Link>
           </div>
         </section>
